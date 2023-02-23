@@ -880,6 +880,8 @@ void setup()
   server.on("/log", HTTP_GET, []() {if(!handleFileRead(&server, "/log.txt")){server.send(404, "text/plain", "FileNotFound");}});
   server.on("/log1", HTTP_GET, []() {if(!handleFileRead(&server, "/log1.txt")){server.send(404, "text/plain", "FileNotFound");}});
   server.on("/param", HTTP_GET, []() {if(!handleFileRead(&server, "/WebSettings.conf")){server.send(404, "text/plain", "FileNotFound");}});
+  server.on("/bsc.css", HTTP_GET, []() {if(!handleFileRead(&server, "/bsc.css")){server.send(404, "text/plain", "FileNotFound");}});
+  server.on("/home.png", HTTP_GET, []() {if(!handleFileRead(&server, "/home.png")){server.send(404, "text/plain", "FileNotFound");}});
 
   webota.init(&server, "/settings/webota/"); //webota
 

@@ -51,7 +51,7 @@ const char ota_upload_form[] PROGMEM = R"!^!(
   .btnBack:hover {background-color:#555555;color:white;}
   .hl {flex:1;font-size:2rem;}
   .titel {font-weight:bold; text-align:left; padding:5px;}
-
+  .home {color:white !important; text-decoration: none !important;}
   progress
   {
 	border: none;
@@ -60,10 +60,12 @@ const char ota_upload_form[] PROGMEM = R"!^!(
 	height: 20px;
   }
 </style>
+<link rel='stylesheet' type='text/css' href='/bsc.css'>
 
 <body>
   <div class="topnav">
     <span class='btnBack' onclick=location.href='../'>&#10094;</span>
+	<span class='home'><a href='/'>&#10094;&#10094;</a></span>
     <span class='hl'>Web-Update</span>
   </div>
   <div class="content">

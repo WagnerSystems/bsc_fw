@@ -1,0 +1,333 @@
+diff --git a/include/params.h b/include/params.h
+index fae29fa..a4aa14a 100644
+--- a/include/params.h
++++ b/include/params.h
+@@ -525,7 +525,7 @@ const char paramBmsToInverter[] PROGMEM = "["
+   "},"
+   "{"
+     "'name':83,"
+-    "'label':' + Datenquelle Serial 0',"
++    "'label':'+ Datenquelle Serial 0',"
+     "'type':10,"
+     "'default':'0'"
+   "},"
+diff --git a/include/webpages.h b/include/webpages.h
+index 018f40a..ab69def 100644
+--- a/include/webpages.h
++++ b/include/webpages.h
+@@ -17,7 +17,8 @@ const char htmlPageRoot[] PROGMEM = "<!DOCTYPE HTML>"
+   "<title>BSC</title>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+-  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
++  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++  "<link rel='stylesheet' type='text/css' href='bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+@@ -37,7 +38,7 @@ const char htmlPageRoot[] PROGMEM = "<!DOCTYPE HTML>"
+       "<div class='card' onclick=\"location.href='./owTempLive'\"><p>Livedaten</p></div>"
+       "<div class='card' onclick=\"location.href='./settings/'\"><p>Einstellungen</p></div>"
+       "<div class='card' onclick=\"location.href='./log'\"><p>Log</p></div>"
+-      "<div class='card' onclick=\"location.href='https://github.com/shining-man/bsc_fw'\"><p>BSC on GitHub</p></div>"
++      "<div class='card' onclick=\"window.open('https://github.com/shining-man/bsc_fw','_blank');\"><p>BSC on GitHub</p></div>"
+     "</div>"
+   "</div>"
+ "</body>"
+@@ -84,7 +85,8 @@ const char htmlPageSettings[] PROGMEM = "<!DOCTYPE HTML>"
+   "<title>BSC</title>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+-  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
++  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++  "<link rel='stylesheet' type='text/css' href='../bsc.css'>"
+   "<script>"
+     "function reboot() {"
+       "var check = confirm('Reboot?');"
+@@ -95,6 +97,7 @@ const char htmlPageSettings[] PROGMEM = "<!DOCTYPE HTML>"
+ "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Einstellungen</span>"
+   "</div>"
+   "<div class='content'>"
+@@ -117,11 +120,13 @@ const char htmlPageSchnittstellen[] PROGMEM = "<!DOCTYPE HTML>"
+   "<title>BSC</title>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+-  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
++  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++  "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Einstellungen - Schnittstellen</span>"
+   "</div>"
+   "<div class='content'>"
+@@ -144,11 +149,13 @@ const char htmlPageAlarm[] PROGMEM = "<!DOCTYPE HTML>"
+   "<title>BSC</title>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+-  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
++  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++  "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+-    "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='btnBack' onclick=\"location.href='./'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Einstellungen - Alarmregeln</span>"
+   "</div>"
+   "<div class='content'>"
+@@ -167,8 +174,9 @@ const char htmlPageBmsSpg[] PROGMEM = "<!doctype html>"
+   "<meta charset='utf-8'>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+   "<title>BSC</title>"
+-  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
+-
++  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++  "<base href='/'/>"
++  "<link rel='stylesheet' type='text/css' href='bsc.css'>"
+   "<style>"
+   ".chart-wrap {margin-left: 50px; font-family: sans-serif; height: 650px; width: 300px;}"
+   "//.chart-wrap .title {font-weight: bold; font-size: 1.62em; padding: 0.5em 0 1.8em 0; text-align: center; white-space: nowrap;}"
+@@ -187,6 +195,7 @@ const char htmlPageBmsSpg[] PROGMEM = "<!doctype html>"
+  "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'><img src='../home.png'></a></span>"
+     "<span class='hl'>Zellspannungen</span>"
+   "</div>"
+   "<br><br>"
+@@ -243,11 +252,14 @@ const char htmlPageStatus[] PROGMEM = "<!DOCTYPE HTML>"
+   "<title>BSC</title>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+-  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
++  "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++  "<base href='/'/>"
++  "<link rel='stylesheet' type='text/css' href='bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+-    "<span class='hl'>Battery Safety Controller - Status</span>" 
++    "<span class='hl'>Battery Safety Controller - Status</span>"
++    "<span class='home'><a class='home' href='/'><img src='../home.png'></a></span>"
+   "</div>"
+   "<div class='content'>"
+     "<pre id='status'></pre>"
+@@ -277,8 +289,9 @@ const char htmlPageOwTempLive[] PROGMEM = "<!doctype html>"
+ "<head>"
+ "<meta charset='utf-8'/>"
+ "<title></title>"
+-"<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}</style>"
+-
++"<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
++"<base href='/'/>"
++"<link rel='stylesheet' type='text/css' href='bsc.css'>"
+ "<style>"
+   ".bar {"
+   "border: solid #808080 2px;"
+@@ -343,6 +356,7 @@ const char htmlPageOwTempLive[] PROGMEM = "<!doctype html>"
+ "<body>"
+ "<div class='topnav'>"
+   "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++  "<span class='home'><a class='home' href='/'><img src='../home.png'></a></span>"
+   "<span class='hl'>Temperaturen (OW)</span>"
+ "</div>"
+ 
+diff --git a/include/webpages_py.h b/include/webpages_py.h
+index 9c8f043..c5b799b 100644
+--- a/include/webpages_py.h
++++ b/include/webpages_py.h
+@@ -27,6 +27,7 @@ PYVAR_HTML_WEBPAGES_STYLE
+   ".button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}"
+   ".button:hover {background-color:#555555;color:white;}"
+   ".button:active {color:#BDBDBD;}"
++  ".home {color:white; text-decoration: none;}"
+ "</style>";
+ //PY_VAR_END*/
+ 
+@@ -37,6 +38,7 @@ const char htmlPageRoot[] PROGMEM = "<!DOCTYPE HTML>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+   "__PYVAR_HTML_WEBPAGES_STYLE__"
++  "<link rel='stylesheet' type='text/css' href='bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+@@ -56,7 +58,7 @@ const char htmlPageRoot[] PROGMEM = "<!DOCTYPE HTML>"
+       "<div class='card' onclick=\"location.href='./owTempLive'\"><p>Livedaten</p></div>"
+       "<div class='card' onclick=\"location.href='./settings/'\"><p>Einstellungen</p></div>"
+       "<div class='card' onclick=\"location.href='./log'\"><p>Log</p></div>"
+-      "<div class='card' onclick=\"location.href='https://github.com/shining-man/bsc_fw'\"><p>BSC on GitHub</p></div>"
++      "<div class='card' onclick=\"window.open('https://github.com/shining-man/bsc_fw','_blank');\"><p>BSC on GitHub</p></div>"
+     "</div>"
+   "</div>"
+ "</body>"
+@@ -104,6 +106,7 @@ const char htmlPageSettings[] PROGMEM = "<!DOCTYPE HTML>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+   "__PYVAR_HTML_WEBPAGES_STYLE__"
++  "<link rel='stylesheet' type='text/css' href='../bsc.css'>"
+   "<script>"
+     "function reboot() {"
+       "var check = confirm('Reboot?');"
+@@ -114,6 +117,7 @@ const char htmlPageSettings[] PROGMEM = "<!DOCTYPE HTML>"
+ "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Einstellungen</span>"
+   "</div>"
+   "<div class='content'>"
+@@ -137,10 +141,12 @@ const char htmlPageSchnittstellen[] PROGMEM = "<!DOCTYPE HTML>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+   "__PYVAR_HTML_WEBPAGES_STYLE__"
++  "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Einstellungen - Schnittstellen</span>"
+   "</div>"
+   "<div class='content'>"
+@@ -164,10 +170,12 @@ const char htmlPageAlarm[] PROGMEM = "<!DOCTYPE HTML>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+   "__PYVAR_HTML_WEBPAGES_STYLE__"
++  "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Einstellungen - Alarmregeln</span>"
+   "</div>"
+   "<div class='content'>"
+@@ -187,7 +195,7 @@ const char htmlPageBmsSpg[] PROGMEM = "<!doctype html>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+   "<title>BSC</title>"
+   "__PYVAR_HTML_WEBPAGES_STYLE__"
+-
++  "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+   "<style>"
+   ".chart-wrap {margin-left: 50px; font-family: sans-serif; height: 650px; width: 300px;}"
+   "//.chart-wrap .title {font-weight: bold; font-size: 1.62em; padding: 0.5em 0 1.8em 0; text-align: center; white-space: nowrap;}"
+@@ -206,6 +214,7 @@ const char htmlPageBmsSpg[] PROGMEM = "<!doctype html>"
+  "<body>"
+   "<div class='topnav'>"
+     "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+     "<span class='hl'>Zellspannungen</span>"
+   "</div>"
+   "<br><br>"
+@@ -263,10 +272,12 @@ const char htmlPageStatus[] PROGMEM = "<!DOCTYPE HTML>"
+   "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+   "<link rel='icon' href='data:,'>"
+   "__PYVAR_HTML_WEBPAGES_STYLE__"
++  "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+ "</head>"
+ "<body>"
+   "<div class='topnav'>"
+-    "<span class='hl'>Battery Safety Controller - Status</span>" 
++    "<span class='hl'>Battery Safety Controller - Status</span>"
++    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+   "</div>"
+   "<div class='content'>"
+     "<pre id='status'></pre>"
+@@ -297,7 +308,7 @@ const char htmlPageOwTempLive[] PROGMEM = "<!doctype html>"
+ "<meta charset='utf-8'/>"
+ "<title></title>"
+ "__PYVAR_HTML_WEBPAGES_STYLE__"
+-
++"<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+ "<style>"
+   ".bar {"
+   "border: solid #808080 2px;"
+@@ -362,6 +373,7 @@ const char htmlPageOwTempLive[] PROGMEM = "<!doctype html>"
+ "<body>"
+ "<div class='topnav'>"
+   "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
++  "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
+   "<span class='hl'>Temperaturen (OW)</span>"
+ "</div>"
+ 
+diff --git a/lib/ESP-WebOTA/src/WebOTA.cpp b/lib/ESP-WebOTA/src/WebOTA.cpp
+index 43e5783..59ad64e 100644
+--- a/lib/ESP-WebOTA/src/WebOTA.cpp
++++ b/lib/ESP-WebOTA/src/WebOTA.cpp
+@@ -51,7 +51,7 @@ const char ota_upload_form[] PROGMEM = R"!^!(
+   .btnBack:hover {background-color:#555555;color:white;}
+   .hl {flex:1;font-size:2rem;}
+   .titel {font-weight:bold; text-align:left; padding:5px;}
+-
++  .home {color:white !important; text-decoration: none !important;}
+   progress
+   {
+ 	border: none;
+@@ -60,10 +60,12 @@ const char ota_upload_form[] PROGMEM = R"!^!(
+ 	height: 20px;
+   }
+ </style>
++<link rel='stylesheet' type='text/css' href='/bsc.css'>
+ 
+ <body>
+   <div class="topnav">
+     <span class='btnBack' onclick=location.href='../'>&#10094;</span>
++	<span class='home'><a href='/'>&#10094;&#10094;</a></span>
+     <span class='hl'>Web-Update</span>
+   </div>
+   <div class="content">
+diff --git a/src/WebSettings.cpp b/src/WebSettings.cpp
+index 2fe3846..7de7ad5 100644
+--- a/src/WebSettings.cpp
++++ b/src/WebSettings.cpp
+@@ -57,12 +57,14 @@ button {font-size:100%%; width:150px; padding:0px; margin:10px 0 0 0;}
+ .sb {font-size:100%%; width:25px; height:25px; padding:0px; margin:5px 0 0 0;}
+ input:invalid {border:1px solid red;}
+ input:valid {border:1px solid green;}
+-
++.home {color:white; text-decoration: none;}
+ </style>
++<link rel='stylesheet' type='text/css' href='/bsc.css'>
+ </head>
+ <body>
+ <div class="topnav">
+   <span class='btnBack' onclick=location.href='../'>&#10094;</span>
++  <span><a class='home' href='/'>&#10094;&#10094;</a></span>
+   <span class='hl'>%s</span>
+ </div>
+ <div class="content">
+diff --git a/src/i2c.cpp b/src/i2c.cpp
+index 89bbb2f..0cf0287 100644
+--- a/src/i2c.cpp
++++ b/src/i2c.cpp
+@@ -9,7 +9,7 @@
+ #include "log.h"
+ #include "WebSettings.h"
+ #include "Canbus.h"
+-#include "Alarmrules.h"
++#include "AlarmRules.h"
+ #include "BmsData.h"
+ 
+ static const char *TAG = "I2C";
+diff --git a/src/main.cpp b/src/main.cpp
+index c2bb486..9a2e239 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -880,6 +880,8 @@ void setup()
+   server.on("/log", HTTP_GET, []() {if(!handleFileRead(&server, "/log.txt")){server.send(404, "text/plain", "FileNotFound");}});
+   server.on("/log1", HTTP_GET, []() {if(!handleFileRead(&server, "/log1.txt")){server.send(404, "text/plain", "FileNotFound");}});
+   server.on("/param", HTTP_GET, []() {if(!handleFileRead(&server, "/WebSettings.conf")){server.send(404, "text/plain", "FileNotFound");}});
++  server.on("/bsc.css", HTTP_GET, []() {if(!handleFileRead(&server, "/bsc.css")){server.send(404, "text/plain", "FileNotFound");}});
++  server.on("/home.png", HTTP_GET, []() {if(!handleFileRead(&server, "/home.png")){server.send(404, "text/plain", "FileNotFound");}});
+ 
+   webota.init(&server, "/settings/webota/"); //webota
+

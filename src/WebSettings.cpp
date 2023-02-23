@@ -57,12 +57,14 @@ button {font-size:100%%; width:150px; padding:0px; margin:10px 0 0 0;}
 .sb {font-size:100%%; width:25px; height:25px; padding:0px; margin:5px 0 0 0;}
 input:invalid {border:1px solid red;}
 input:valid {border:1px solid green;}
-
+.home {color:white; text-decoration: none;}
 </style>
+<link rel='stylesheet' type='text/css' href='/bsc.css'>
 </head>
 <body>
 <div class="topnav">
   <span class='btnBack' onclick=location.href='../'>&#10094;</span>
+  <span><a class='home' href='/'>&#10094;&#10094;</a></span>
   <span class='hl'>%s</span>
 </div>
 <div class="content">
