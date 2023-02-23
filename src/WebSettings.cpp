@@ -64,7 +64,7 @@ input:valid {border:1px solid green;}
 <body>
 <div class="topnav">
   <span class='btnBack' onclick=location.href='../'>&#10094;</span>
-  <span><a class='home' href='/'>&#10094;&#10094;</a></span>
+  <span><a class='home' href='/'><img src='/home.png'></a></span>
   <span class='hl'>%s</span>
 </div>
 <div class="content">

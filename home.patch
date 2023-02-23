@@ -48,7 +48,7 @@ index 018f40a..ab69def 100644
  "<body>"
    "<div class='topnav'>"
      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Einstellungen</span>"
    "</div>"
    "<div class='content'>"
@@ -63,7 +63,7 @@ index 018f40a..ab69def 100644
  "<body>"
    "<div class='topnav'>"
      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Einstellungen - Schnittstellen</span>"
    "</div>"
    "<div class='content'>"
@@ -79,7 +79,7 @@ index 018f40a..ab69def 100644
    "<div class='topnav'>"
 -    "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
 +    "<span class='btnBack' onclick=\"location.href='./'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Einstellungen - Alarmregeln</span>"
    "</div>"
    "<div class='content'>"
@@ -181,7 +181,7 @@ index 9c8f043..c5b799b 100644
  "<body>"
    "<div class='topnav'>"
      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Einstellungen</span>"
    "</div>"
    "<div class='content'>"
@@ -194,7 +194,7 @@ index 9c8f043..c5b799b 100644
  "<body>"
    "<div class='topnav'>"
      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Einstellungen - Schnittstellen</span>"
    "</div>"
    "<div class='content'>"
@@ -207,7 +207,7 @@ index 9c8f043..c5b799b 100644
  "<body>"
    "<div class='topnav'>"
      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Einstellungen - Alarmregeln</span>"
    "</div>"
    "<div class='content'>"
@@ -224,7 +224,7 @@ index 9c8f043..c5b799b 100644
   "<body>"
    "<div class='topnav'>"
      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
      "<span class='hl'>Zellspannungen</span>"
    "</div>"
    "<br><br>"
@@ -238,7 +238,7 @@ index 9c8f043..c5b799b 100644
    "<div class='topnav'>"
 -    "<span class='hl'>Battery Safety Controller - Status</span>" 
 +    "<span class='hl'>Battery Safety Controller - Status</span>"
-+    "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++    "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
    "</div>"
    "<div class='content'>"
      "<pre id='status'></pre>"
@@ -255,7 +255,7 @@ index 9c8f043..c5b799b 100644
  "<body>"
  "<div class='topnav'>"
    "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
-+  "<span class='home'><a class='home' href='/'>&#10094;&#10094;</a></span>"
++  "<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
    "<span class='hl'>Temperaturen (OW)</span>"
  "</div>"
  
@@ -281,7 +281,7 @@ index 43e5783..59ad64e 100644
  <body>
    <div class="topnav">
      <span class='btnBack' onclick=location.href='../'>&#10094;</span>
-+	<span class='home'><a href='/'>&#10094;&#10094;</a></span>
++	<span class='home'><a href='/'><img src='/home.png'></a></span>
      <span class='hl'>Web-Update</span>
    </div>
    <div class="content">
@@ -301,7 +301,7 @@ index 2fe3846..7de7ad5 100644
  <body>
  <div class="topnav">
    <span class='btnBack' onclick=location.href='../'>&#10094;</span>
-+  <span><a class='home' href='/'>&#10094;&#10094;</a></span>
++  <span><a class='home' href='/'><img src='/home.png'></a></span>
    <span class='hl'>%s</span>
  </div>
  <div class="content">
