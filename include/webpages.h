@@ -37,6 +37,7 @@ const char htmlPageRoot[] PROGMEM = "<!DOCTYPE HTML>"
         "<tr><td>6..10&nbsp;&nbsp;</td><td><span id='card_alarm2'></span></td></tr></table></center></p></div>"
       "<div class='card' onclick=\"location.href='./owTempLive'\"><p>Livedaten</p></div>"
       "<div class='card' onclick=\"location.href='./settings/'\"><p>Einstellungen</p></div>"
+      "<div class='card' onclick=\"location.href='./logold'\"><p>Log Old</p></div>"
       "<div class='card' onclick=\"location.href='./log'\"><p>Log</p></div>"
       "<div class='card' onclick=\"window.open('https://github.com/shining-man/bsc_fw','_blank');\"><p>BSC on GitHub</p></div>"
     "</div>"
@@ -357,9 +358,66 @@ const char htmlPageOwTempLive[] PROGMEM = "<!doctype html>"
   "<span class='hl'>Temperaturen (OW)</span>"
 "</div>"
 
-"<script>"
-"for(i=0;i<64;i++){addSensor(i);} "
-"getData();"
-"</script>"
+  "<script>"
+    "for(i=0;i<64;i++){addSensor(i);} "
+    "getData();"
+  "</script>"
 "</body>"
+"</html>";
+
+const char htmlLog[] PROGMEM = "<!DOCTYPE HTML>"
+"<html>"
+  "<head>"
+    "<title>BSC</title>"
+    "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+    "<link rel='icon' href='data:,'>"
+    "<style>html {font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}body {margin:0;}.content {padding:20px;}.topnav {overflow: hidden;position:sticky;top:0;background-color:#6E6E6E;color:white;padding:5px;cursor:default;}.topnav span {float:left; padding: 14px 16px; text-decoration:none; font-size:1.7rem;}.btnBack:hover {background-color:#555555;color:white;}.hl {flex:1;font-size:2rem;}.cards {padding:20px;max-width:700px;margin:0 auto;display:grid;grid-gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}.card {background-color:white;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.cardDash {background-color:#F2F2F2;box-shadow:2px 2px 12px 1px rgba(140,140,140,.5);text-decoration:none;font-size:26px; cursor:default;}.card:hover {background-color:#555555;color:white;}.button {background-color:#BDBDBD;border:none;border-radius:10px;color:white;padding:16px 40px;text-decoration:none;font-size:26px;margin:2px;cursor:default;}.button:hover {background-color:#555555;color:white;}.button:active {color:#BDBDBD;}.home {color:white; text-decoration: none;}</style>"
+    "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+"<script>"
+  "function load() {"
+    "var file = new XMLHttpRequest();"
+    "var text = 'file not found';"
+    "file.open('GET', '../log.txt', true);"
+    "file.onreadystatechange = function() {"
+      "if (file.readyState === 4) {"  // Makes sure the document is ready to parse
+        "if (file.status === 200) {"  // Makes sure it's found the file
+          "text = file.responseText;"
+        "}"
+      "}"
+    "}"
+    "document.getElementById('content').innerHTML = text;"
+    "document.getElementById('log').innerHTML = text;"
+    "file.send(null);"
+"}"
+
+"window.onLoad = load();"
+"</script>"
+  /*"  var txtFile = new XMLHttpRequest();
+    var allText = "file not found";
+    txtFile.onreadystatechange = function () {
+        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+            allText = txtFile.responseText;
+            allText = allText.split("\n").join("<br>");
+        }
+
+        document.getElementById('txt').innerHTML = allText;
+    }
+    txtFile.open("GET", '/result/client.txt', true);
+    txtFile.send(null);"*/
+  "</head>"
+  "<body>"
+    "<div class='topnav'>"
+      "<span class='btnBack' onclick=\"location.href='../'\">&#10094;</span>"
+      //"<span class='home'><a class='home' href='/'><img src='/home.png'></a></span>"
+      "<span class='hl'>Log</span>"
+    "</div>"
+    "<div id = 'content' class='content'>"
+      "<br"
+      "<label for='log'>Logfile:/n</label><br>"
+      "<textarea id='log' name='log' rows='40' cols='200'>"
+      
+      "</textarea>"
+      "<embed src='../log.txt'>"
+    "</div>"
+  "</body>"
 "</html>";

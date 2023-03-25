@@ -538,7 +538,6 @@ void handle_htmlPageBmsSpg(){server.send(200, "text/html", htmlPageBmsSpg);}
 void handlePage_status(){server.send(200, "text/html", htmlPageStatus);}
 void handlePage_htmlPageOwTempLive(){server.send(200, "text/html", htmlPageOwTempLive);}
 
-
 /*
   Handle WebSettings
 */
@@ -742,6 +741,72 @@ void btnSystemDeleteLog()
   ESP_LOGI(TAG, "Logfiles deleted");
 }
 
+/* *******************************************         ******************************* VW */
+void handlePage_htmlLog(){server.send(200, "text/html", htmlLog);}
+const char HTML_START[] PROGMEM = "<!DOCTYPE HTML>"
+"<html>"
+  "<head>"
+    "<title>BSC</title>"
+    "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+    "<link rel='icon' href='data:,'>"
+    "__PYVAR_HTML_WEBPAGES_STYLE__"
+    "<link rel='stylesheet' type='text/css' href='/bsc.css'>"
+  "</head>"
+  "<body>";
+
+const char HTML_END_1[] PROGMEM = R"rawliteral(
+</table>
+</form>
+)rawliteral";
+const char HTML_END_3[] PROGMEM = "</body>"
+"</html>";
+
+
+void handle_FileList() {
+  if (!server.hasArg("dir")) {
+    server.send(500, "text/plain", "BAD ARGS");
+    return;
+  }
+
+  String path = server.arg("dir");
+  Serial.println("handleFileList: " + path);
+
+
+  File root = SPIFFS.open(path);
+  path = String();
+
+  String output = "[";
+  if(root.isDirectory()){
+      File file = root.openNextFile();
+      while(file){
+          if (output != "[") {
+            output += ',';
+          }
+          output += "{\"type\":\"";
+          output += (file.isDirectory()) ? "dir" : "file";
+          output += "\",\"name\":\"";
+          output += String(file.path()).substring(1);
+          output += "\"}";
+          file = root.openNextFile();
+      }
+  }
+  output += "]";
+  char val[2500];
+  strcpy(val,HTML_START);
+  strcat(val,output.c_str());
+  strcat(val,HTML_END_3);
+  output = val;
+  server.send(200, "text/json", output);
+}
+
+void handle_FileRead() {
+  if (SPIFFS.exists("/log.txt")) {
+    File file = SPIFFS.open("/log.txt", "r");
+    server.streamFile(file, "text/plain");
+    file.close();
+  }
+}
+/* *******************************************         ******************************* VW */
 
 uint8_t checkTaskRun()
 {
@@ -877,7 +942,9 @@ void setup()
   server.on("/owTempLive",handlePage_htmlPageOwTempLive);
   server.on("/getOwTempData",handle_getOwTempData);
   server.on("/settings/schnittstellen/ow/getOwDevices",handle_getOnewireDeviceAdr);
-  server.on("/log", HTTP_GET, []() {if(!handleFileRead(&server, "/log.txt")){server.send(404, "text/plain", "FileNotFound");}});
+  server.on("/logold", HTTP_GET, []() {if(!handleFileRead(&server, "/log.txt")){server.send(404, "text/plain", "FileNotFound");}});
+  server.on("/log", handlePage_htmlLog);
+  server.on("/files", handle_FileList);
   server.on("/log1", HTTP_GET, []() {if(!handleFileRead(&server, "/log1.txt")){server.send(404, "text/plain", "FileNotFound");}});
   server.on("/param", HTTP_GET, []() {if(!handleFileRead(&server, "/WebSettings.conf")){server.send(404, "text/plain", "FileNotFound");}});
   server.on("/bsc.css", HTTP_GET, []() {if(!handleFileRead(&server, "/bsc.css")){server.send(404, "text/plain", "FileNotFound");}});
